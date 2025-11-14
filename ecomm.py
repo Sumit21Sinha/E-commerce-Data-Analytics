@@ -6,23 +6,24 @@ import os
 csv_files = [
     ('customers.csv', 'customers'),
     ('orders.csv', 'orders'),
-    ('sales.csv', 'sales'),
+    ('sellers.csv', 'sellers'),
     ('products.csv', 'products'),
-    ('delivery.csv', 'delivery'),
-    ('payments.csv', 'payments')
+    ('geolocation.csv', 'geolocation'),
+    ('payments.csv', 'payments'),
+    ('order_items.csv', 'order_items')
 ]
 
 # Connect to the MySQL database
 conn = mysql.connector.connect(
-    host='your_host',
-    user='your_username',
-    password='your_password',
-    database='your_database'
+    host='localhost',
+    user='root',
+    password='Sumit_123',
+    database='ecommerce'
 )
 cursor = conn.cursor()
 
 # Folder containing the CSV files
-folder_path = 'path_to_your_folder'
+folder_path = 'C:/Users/Sumit Sinha/Desktop/DataAnalysisProject_OrderSeller/DataSets'
 
 
 def get_sql_type(dtype):
