@@ -75,5 +75,23 @@ import matplotlib.pyplot as plt
 # # Close the connection
 # conn.close()
 
-db=mysql.connector.connect(host="localhost", username="root", password = "Sumit_123", database = "ecommerce")
+db=mysql.connector.connect(host="localhost", username="root", password="Sumit_123", database="ecommerce")
 cur = db.cursor()
+
+# 1. List all unique cities where customers are located.
+query = """ select distinct customer_city from customers """
+cur.execute(query)
+data=cur.fetchall()
+df=pd.DataFrame(data)
+print(df.head())
+
+# 2. Count the number of orders placed in 2017.
+query = """ select count(order_purchase_timestamp) from orders where year(order_purchase_timestamp) = 2017 """
+cur.execute(query)
+data = cur.fetchall()
+print("\ntotal orders placed in 2017 are", data[0][0])
+
+# 3. Find the total sales per category.
+query = """ select count(order_purchase_timestamp) from orders where year(order_purchase_timestamp) = 2017 """
+cur.execute(query)
+data = cur.fetchall()
