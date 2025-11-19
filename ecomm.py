@@ -100,6 +100,18 @@ data = cur.fetchall()
 print(pd.DataFrame(data))
 
 # 4. Calculate the percentage of orders that were paid in installments.
+query = """ select (sum(payment_installments>=1)/count(*))*100 from payments; """
+cur.execute(query)
+data = cur.fetchall()
+print(pd.DataFrame(data))
+
+# 5. Count the number of customers from each state.
+query = """ select count(customer_id), customer_state from customers group by customer_state; """
+cur.execute(query)
+data = cur.fetchall()
+print(pd.DataFrame(data))
+
+# 6. Calculate the number of orders per month in 2018.
 query = """  """
 cur.execute(query)
 data = cur.fetchall()
