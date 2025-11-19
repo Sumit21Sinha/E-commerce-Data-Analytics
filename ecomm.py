@@ -92,6 +92,15 @@ data = cur.fetchall()
 print("\ntotal orders placed in 2017 are", data[0][0])
 
 # 3. Find the total sales per category.
-query = """ select count(order_purchase_timestamp) from orders where year(order_purchase_timestamp) = 2017 """
+query = """ select products.product_category, sum(payments.payment_value) 
+from products join order_items on products.product_id=order_items.product_id join payments on 
+payments.order_id=order_items.order_id group by products.product_category """
 cur.execute(query)
 data = cur.fetchall()
+print(pd.DataFrame(data))
+
+# 4. Calculate the percentage of orders that were paid in installments.
+query = """  """
+cur.execute(query)
+data = cur.fetchall()
+print(pd.DataFrame(data))
