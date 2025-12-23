@@ -112,6 +112,13 @@ data = cur.fetchall()
 print(pd.DataFrame(data))
 
 # 6. Calculate the number of orders per month in 2018.
+query = """select monthname(order_purchase_timestamp), count(monthname(order_purchase_timestamp))  
+from orders where year(order_purchase_timestamp)=2018 group by monthname(order_purchase_timestamp);"""
+cur.execute(query)
+data = cur.fetchall()
+print(pd.DataFrame(data))
+
+#7. Find the average number of products per order, grouped by customer city.
 query = """  """
 cur.execute(query)
 data = cur.fetchall()
