@@ -119,7 +119,19 @@ data = cur.fetchall()
 print(pd.DataFrame(data))
 
 #7. Find the average number of products per order, grouped by customer city.
-query = """  """
+query=""" with count_per_order as 
+(select orders.order_id, orders.customer_id, count(order_items.order_id) as oc
+from orders join order_items on orders.order_id = order_items.order_id
+group by orders.order_id, orders.customer_id)
+select customers.customer_city, round(avg(count_per_order.oc),2) average_orders
+from customers join count_per_order on customers.customer_id = count_per_order.customer_id
+group by customers.customer_city order by average_orders desc """
+cur.execute(query)
+data = cur.fetchall()
+print(pd.DataFrame(data))
+
+#8. Calculate the percentage of total revenue contributed by each product category.
+query="""  """
 cur.execute(query)
 data = cur.fetchall()
 print(pd.DataFrame(data))
