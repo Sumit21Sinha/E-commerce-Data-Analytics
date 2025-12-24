@@ -1,6 +1,6 @@
 ﻿# E-commerce-Data-Analytics
 
-# End-to-End E-Commerce Data Analytics Project (Python + SQL)
+## End-to-End E-Commerce Data Analytics Project (Python + SQL)
 This project demonstrates an end-to-end data analytics pipeline using Python, MySQL, and SQL analytics queries on an e-commerce dataset.
 
 ## The workflow covers:
@@ -111,4 +111,6 @@ Add ER diagrams
 
 Build a Streamlit dashboard
 
-### By Sumit Sinha (India)
+
+#### By Sumit Sinha (India)
+
